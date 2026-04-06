@@ -25,65 +25,52 @@ public class KannadaTimeUtil {
         "ಸೆಪ್ಟೆಂಬರ್", "ಅಕ್ಟೋಬರ್", "ನವೆಂಬರ್", "ಡಿಸೆಂಬರ್"
     };
 
-    public static String toKannadaNumber(int number) {
+    public static String toKannada(int number) {
         StringBuilder sb = new StringBuilder();
-        String numStr = String.valueOf(number);
-        for (char c : numStr.toCharArray()) {
-            int digit = c - '0';
-            if (digit >= 0 && digit <= 9) {
-                sb.append(KANNADA_DIGITS[digit]);
-            } else {
-                sb.append(c);
-            }
+        for (char c : String.valueOf(number).toCharArray()) {
+            int d = c - '0';
+            sb.append((d >= 0 && d <= 9) ? KANNADA_DIGITS[d] : c);
         }
         return sb.toString();
     }
 
-    public static String getKannadaPeriod(int hour24) {
-        if (hour24 >= 4 && hour24 < 12) return "ಬೆಳಿಗ್ಗೆ";
-        if (hour24 >= 12 && hour24 < 16) return "ಮಧ್ಯಾಹ್ನ";
-        if (hour24 >= 16 && hour24 < 19) return "ಸಂಜೆ";
+    public static String pad(int n) {
+        return (n < 10) ? "೦" + toKannada(n) : toKannada(n);
+    }
+
+    public static String getPeriod(int h) {
+        if (h >= 4 && h < 12) return "ಬೆಳಿಗ್ಗೆ";
+        if (h >= 12 && h < 16) return "ಮಧ್ಯಾಹ್ನ";
+        if (h >= 16 && h < 19) return "ಸಂಜೆ";
         return "ರಾತ್ರಿ";
     }
 
-    public static String getKannadaTime(Calendar cal) {
-        int hour24 = cal.get(Calendar.HOUR_OF_DAY);
-        int hour12 = cal.get(Calendar.HOUR);
-        if (hour12 == 0) hour12 = 12;
-        int minute = cal.get(Calendar.MINUTE);
-
-        String period = getKannadaPeriod(hour24);
-        String hh = toKannadaNumber(hour12);
-        String mm = (minute < 10) ? "೦" + toKannadaNumber(minute) : toKannadaNumber(minute);
-
-        return period + " " + hh + ":" + mm;
+    public static String getTime(Calendar c) {
+        int h24 = c.get(Calendar.HOUR_OF_DAY);
+        int h12 = c.get(Calendar.HOUR);
+        if (h12 == 0) h12 = 12;
+        return getPeriod(h24) + " " + toKannada(h12) + ":" + pad(c.get(Calendar.MINUTE)) + ":" + pad(c.get(Calendar.SECOND));
     }
 
-    public static String getKannadaTimeWithSeconds(Calendar cal) {
-        int hour24 = cal.get(Calendar.HOUR_OF_DAY);
-        int hour12 = cal.get(Calendar.HOUR);
-        if (hour12 == 0) hour12 = 12;
-        int minute = cal.get(Calendar.MINUTE);
-        int second = cal.get(Calendar.SECOND);
-
-        String period = getKannadaPeriod(hour24);
-        String hh = toKannadaNumber(hour12);
-        String mm = (minute < 10) ? "೦" + toKannadaNumber(minute) : toKannadaNumber(minute);
-        String ss = (second < 10) ? "೦" + toKannadaNumber(second) : toKannadaNumber(second);
-
-        return period + " " + hh + ":" + mm + ":" + ss;
+    public static String getTimeLarge(Calendar c) {
+        int h12 = c.get(Calendar.HOUR);
+        if (h12 == 0) h12 = 12;
+        return toKannada(h12) + ":" + pad(c.get(Calendar.MINUTE));
     }
 
-    public static String getKannadaDate(Calendar cal) {
-        int day = cal.get(Calendar.DAY_OF_MONTH);
-        int month = cal.get(Calendar.MONTH);
-        int year = cal.get(Calendar.YEAR);
-
-        return toKannadaNumber(day) + " " + KANNADA_MONTHS[month] + " " + toKannadaNumber(year);
+    public static String getSeconds(Calendar c) {
+        return pad(c.get(Calendar.SECOND));
     }
 
-    public static String getKannadaDay(Calendar cal) {
-        int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
-        return KANNADA_DAYS[dayOfWeek];
+    public static String getDate(Calendar c) {
+        return toKannada(c.get(Calendar.DAY_OF_MONTH)) + " " + KANNADA_MONTHS[c.get(Calendar.MONTH)] + " " + toKannada(c.get(Calendar.YEAR));
+    }
+
+    public static String getDay(Calendar c) {
+        return KANNADA_DAYS[c.get(Calendar.DAY_OF_WEEK)];
+    }
+
+    public static String getPeriodOnly(Calendar c) {
+        return getPeriod(c.get(Calendar.HOUR_OF_DAY));
     }
 }
