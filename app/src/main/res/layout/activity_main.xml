@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="#FF0D0D0D"
+    android:padding="24dp">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ಕನ್ನಡ ಲಾಕ್ ಸ್ಕ್ರೀನ್ ಗಡಿಯಾರ"
+        android:textSize="22sp"
+        android:textColor="#FFFFFFFF"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lock Screen Clock in Kannada"
+        android:textSize="13sp"
+        android:textColor="#99FFFFFF"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Preview Card -->
+    <LinearLayout
+        android:id="@+id/preview_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/gradient_bg"
+        android:padding="32dp"
+        android:layout_marginBottom="24dp">
+
+        <TextView
+            android:id="@+id/preview_period"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ಬೆಳಿಗ್ಗೆ"
+            android:textSize="18sp"
+            android:textColor="#CCFFFFFF"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/preview_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="೧೨:೦೦"
+            android:textSize="64sp"
+            android:textColor="#FFFFFFFF"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-thin"/>
+
+        <TextView
+            android:id="@+id/preview_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ಸೋಮವಾರ"
+            android:textSize="20sp"
+            android:textColor="#DDFFFFFF"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/preview_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="೧ ಜನವರಿ ೨೦೨೫"
+            android:textSize="16sp"
+            android:textColor="#AAFFFFFF"
+            android:layout_marginTop="4dp"/>
+    </LinearLayout>
+
+    <!-- Status -->
+    <TextView
+        android:id="@+id/status_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="..."
+        android:textSize="14sp"
+        android:textColor="#FFBBBBBB"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Permission Button -->
+    <Button
+        android:id="@+id/btn_permission"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="⚙ ಅನುಮತಿ ನೀಡಿ (Overlay Permission)"
+        android:textSize="14sp"
+        android:textColor="#FFFFFFFF"
+        android:backgroundTint="#FF FF9800"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Start Button -->
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="▶ ಗಡಿಯಾರ ಪ್ರಾರಂಭಿಸಿ"
+        android:textSize="16sp"
+        android:textColor="#FFFFFFFF"
+        android:backgroundTint="#FF4CAF50"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Stop Button -->
+    <Button
+        android:id="@+id/btn_stop"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="⏹ ಗಡಿಯಾರ ನಿಲ್ಲಿಸಿ"
+        android:textSize="16sp"
+        android:textColor="#FFFFFFFF"
+        android:backgroundTint="#FFF44336"/>
+
+</LinearLayout>
