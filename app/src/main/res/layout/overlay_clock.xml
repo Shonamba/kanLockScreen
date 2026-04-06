@@ -1,25 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/overlay_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#DD000000">
+    android:background="#DD000000"
+    android:clickable="true"
+    android:focusable="true">
 
+    <!-- ಕನ್ನಡ ಅವಧಿ (Period - Morning/Afternoon/Evening/Night) -->
     <TextView
         android:id="@+id/overlay_period"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ಬೆಳಿಗ್ಗೆ"
-        android:textSize="22sp"
+        android:textSize="24sp"
         android:textColor="#BBFFFFFF"
+        android:fontFamily="sans-serif-light"
+        android:letterSpacing="0.15"
         android:layout_marginBottom="4dp"/>
 
+    <!-- ಸಮಯ (Large Time) -->
     <TextView
         android:id="@+id/overlay_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="೧೨:೦೦"
-        android:textSize="86sp"
-        android:textColor="#
+        android:textSize="96sp"
+        android:textColor="#FFFFFFFF"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-thin"
+        android:includeFontPadding="false"
+        android:layout_marginBottom="2dp"/>
+
+    <!-- ಸೆಕೆಂಡ್ (Seconds) -->
+    <TextView
+        android:id="@+id/overlay_seconds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="೦೦"
+        android:textSize="28sp"
+        android:textColor="#88FFFFFF"
+        android:fontFamily="sans-serif-light"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- ವಿಭಜಕ ರೇಖೆ (Divider Line) -->
+    <View
+        android:layout_width="120dp"
+        android:layout_height="1dp"
+        android:background="#33FFFFFF"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- ವಾರದ ದಿನ (Day of Week) -->
+    <TextView
+        android:id="@+id/overlay_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ಸೋಮವಾರ"
+        android:textSize="22sp"
+        android:textColor="#DDFFFFFF"
+        android:fontFamily="sans-serif-medium"
+        android:letterSpacing="0.1"
+        android:layout_marginBottom="6dp"/>
+
+    <!-- ದಿನಾಂಕ (Date) -->
+    <TextView
+        android:id="@+id/overlay_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="೧ ಜನವರಿ ೨೦೨೫"
+        android:textSize="18sp"
+        android:textColor="#AAFFFFFF"
+        android:fontFamily="sans-serif-light"
+        android:layout_marginBottom="40dp"/>
+
+    <!-- ಅನ್‌ಲಾಕ್ ಸೂಚನೆ (Swipe hint) -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:alpha="0.5">
+
+        <!-- Swipe up arrow -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⌃"
+            android:textSize="24sp"
+            android:textColor="#FFFFFFFF"
+            android:layout_marginBottom="2dp"/>
+
+        <TextView
+            android:id="@+id/overlay_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ಅನ್‌ಲಾಕ್ ಮಾಡಲು ಮೇಲೆ ಸ್ವೈಪ್ ಮಾಡಿ"
+            android:textSize="13sp"
+            android:textColor="#FFFFFFFF"
+            android:fontFamily="sans-serif-light"/>
+    </LinearLayout>
+
+</LinearLayout>
